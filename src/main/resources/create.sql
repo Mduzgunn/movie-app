@@ -1,6 +1,11 @@
-create table genres(id int, name varchar(20));
+create table role(id int, name varchar(20));
 
 create table languages(id int, name varchar(20));
+
+create table type(id int, name varchar(20));
+
+
+
 
 create table movies(id int AUTO_INCREMENT, name varchar(40), releaseYear int, genreId int, languageId int,
                     story varchar(200),
