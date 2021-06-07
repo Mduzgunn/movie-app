@@ -1,7 +1,6 @@
 package com.movie.collection.app.service;
 
 import com.movie.collection.app.model.Movie;
-import com.movie.collection.app.model.Actor;
 import com.movie.collection.app.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 

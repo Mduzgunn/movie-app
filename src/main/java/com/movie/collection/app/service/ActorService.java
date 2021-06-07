@@ -2,6 +2,7 @@ package com.movie.collection.app.service;
 
 import com.movie.collection.app.model.Actor;
 import com.movie.collection.app.repository.ActorRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -74,6 +75,8 @@ public class ActorService {
 
     public List<Actor> list() {
         List<Actor> actors = actorRepository.findAll();
+        System.out.println("Actor listesi");
+        System.out.println(actors);
         return actors;
     }
 }
