@@ -33,14 +33,15 @@ public class Movie {
     @Column(name = "LANGUAGE")
     private String language;
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "MOVIE_ACTOR",
-            joinColumns = @JoinColumn(name = "MOVIE_ID"),
-            inverseJoinColumns = @JoinColumn(name = "ACTOR_ID")
-    )
+
+
+     @ManyToMany(fetch = FetchType.LAZY)
+            @JoinTable(name = "MOVIE_ACTOR",
+                joinColumns = @JoinColumn(name = "MOVIE_ID"),
+                inverseJoinColumns = @JoinColumn(name = "ACTOR_ID")
+        )
+
+
     private List<Actor> actors = new ArrayList<>();
 
     public Long getId() {
