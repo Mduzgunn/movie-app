@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+
+</head>
+<body>
+
+<div class="container p-3 my-3 bg-primary text-white">
+
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+    <form action="#" th:action="@{/movie/save}" th:object="${movie}" method="POST">
+
+
+        <input type="hidden" th:field="*{id}"/> <br/>
+
+        <label>Movie Name:</label>
+        <input type="text" th:field="*{name}" placeholder="name"><br>
+
+        <label>Movie Year:</label>
+        <input type="text" th:field="*{year}" placeholder="year"><br>
+
+        <label>Movie Type:</label>
+        <select name="type">
+            <option value="volvo">Volvo</option>
+            <option value="aa">aa</option>
+            <option value="ss">ss</option>
+            <option value="vv">vv</option>
+        </select><br>
+
+        <label>Movie Description:</label>
+        <input type="text" th:field="*{description}" placeholder="description"><br>
+
+        <label>Movie Media:</label>
+        <input type="text" th:field="*{media}" placeholder="media"><br>
+
+        <label>Movie Language:</label>
+        <select name="language">
+            <option value="volvo">Volvo</option>
+            <option value="aa">aa</option>
+            <option value="ss">ss</option>
+            <option value="vv">vv</option>
+
+        </select><br>
+
+        <label>Movie Actors:</label>
+        <select th:field="*{actors}">
+            <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.firstName}"></option>
+        </select> <br/>
+
+        <button type="submit">SAVE</button>
+    </form>
+    <a th:href="@{/movie/list}">back to movie list</a><br>
+    <a th:href="@{/actor/list}">go to actor list</a>
+</div>
+</body>
+</html>

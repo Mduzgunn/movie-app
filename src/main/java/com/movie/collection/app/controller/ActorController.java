@@ -2,6 +2,7 @@ package com.movie.collection.app.controller;
 
 import com.movie.collection.app.model.Actor;
 import com.movie.collection.app.service.ActorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,10 @@ import java.util.List;
 @RequestMapping("actor")
 public class ActorController {
 
+    @Autowired
     private ActorService actorService;
 
-    public ActorController(ActorService actorService) {
-        this.actorService = actorService;
+    public ActorController() {
     }
 
     @GetMapping("/list")

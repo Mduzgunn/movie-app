@@ -6,6 +6,7 @@ import com.movie.collection.app.model.Movie;
 
 import com.movie.collection.app.service.ActorService;
 import com.movie.collection.app.service.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +18,14 @@ import java.util.List;
 @RequestMapping("movie")
 public class MovieController {
 
+    @Autowired
     private MovieService movieService;
+
+    @Autowired
     private ActorService actorService;
 
-    public MovieController(MovieService movieService, ActorService actorService) {
-        this.movieService = movieService;
-        this.actorService = actorService;
+    public MovieController() {
+
     }
 
     @GetMapping("/list")
@@ -30,6 +33,15 @@ public class MovieController {
         List<Movie> movies = movieService.list();
         model.addAttribute("movies", movies);
         return "movieList";
+    }
+
+
+
+    @GetMapping("/listtest")
+    public @ResponseBody  List<Movie>  listApi() {
+        List<Movie> movies = movieService.list();
+
+        return movies;
     }
 
     @PostMapping("/save")
@@ -49,7 +61,7 @@ public class MovieController {
         Movie movie = movieService.getById(id);
         model.addAttribute("actors", actorService.list());
         model.addAttribute("movie", movie);
-        return "newMovie";
+        return "addMovie";
     }
 
     @GetMapping("/add-movie")
@@ -58,7 +70,7 @@ public class MovieController {
         List<Actor> actors = actorService.list();
         model.addAttribute("actors", actors);
         model.addAttribute("movie", movie);
-        return "newMovie";
+        return "addMovie";
     }
 
     @GetMapping("/search")
