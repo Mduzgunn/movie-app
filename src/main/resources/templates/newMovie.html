@@ -13,8 +13,6 @@
 
 <div class="container p-3 my-3 bg-primary text-white">
 
-
-    <button class="btn btn-primary" type="submit">Submit form</button>
     <form action="#" th:action="@{/movie/save}" th:object="${movie}" method="POST">
 
 
@@ -28,10 +26,10 @@
 
         <label>Movie Type:</label>
         <select name="type">
-            <option value="volvo">Volvo</option>
-            <option value="aa">aa</option>
-            <option value="ss">ss</option>
-            <option value="vv">vv</option>
+            <option value="aksiyon">aksiyon</option>
+            <option value="korku">korku</option>
+            <option value="gerilim">gerilim</option>
+            <option value="polisiye">polisiye</option>
         </select><br>
 
         <label>Movie Description:</label>
@@ -42,10 +40,10 @@
 
         <label>Movie Language:</label>
         <select name="language">
-            <option value="volvo">Volvo</option>
-            <option value="aa">aa</option>
-            <option value="ss">ss</option>
-            <option value="vv">vv</option>
+            <option value="English">English</option>
+            <option value="Türkçe">Türkçe</option>
+            <option value="Rusça">Rusça</option>
+            <option value="Çerkesce">Çerkesce</option>
 
         </select><br>
 

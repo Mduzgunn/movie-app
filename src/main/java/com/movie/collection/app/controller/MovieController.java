@@ -61,7 +61,7 @@ public class MovieController {
         Movie movie = movieService.getById(id);
         model.addAttribute("actors", actorService.list());
         model.addAttribute("movie", movie);
-        return "addMovie";
+        return "newMovie";
     }
 
     @GetMapping("/add-movie")
@@ -70,7 +70,7 @@ public class MovieController {
         List<Actor> actors = actorService.list();
         model.addAttribute("actors", actors);
         model.addAttribute("movie", movie);
-        return "addMovie";
+        return "newMovie";
     }
 
     @GetMapping("/search")

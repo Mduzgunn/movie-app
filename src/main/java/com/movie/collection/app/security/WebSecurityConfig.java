@@ -19,12 +19,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.authenticationSuccessHandler = authenticationSuccessHandler;
     }
 
-    /*@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/static/css/**").permitAll()
-                .antMatchers("/admin","/add-movie").hasRole("ADMIN")
+                .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and().csrf().disable(); // we'll enable this in a later blog post
     }
-*/
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth

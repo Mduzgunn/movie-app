@@ -85,6 +85,7 @@ public class MovieServiceImpl implements MovieService {
         return movies;
     }
 
+
     public List<Movie> search(String search) {
         List<Movie> movies = movieRepository.findBySearch(search.toUpperCase());
         return movies;
