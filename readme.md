@@ -1,13 +1,13 @@
 Once the app runs, open your browser and type http://localhost:8080 as the url. You'll get redirected to the login page.
 
 
-#Admin
+# Admin
 **username:** admin <br>
 **password:** pass <br>
 <br>
 You can add, edit and delete movie and actor entries with this account
 
-#User
+# User
 **username:** user <br>
 **password:** pass <br>
 
