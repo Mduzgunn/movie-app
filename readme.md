@@ -1,3 +1,8 @@
+movie-app is a simple movie storage application.
+
+This app is a Spring Boot Web Application using Spring Boot, Maven, JPA/Hibernate, Thymeleaf, Spring Security, mySQL.
+
+
 Once the app runs, open your browser and type http://localhost:8080 as the url. You'll get redirected to the login page.
 
 
