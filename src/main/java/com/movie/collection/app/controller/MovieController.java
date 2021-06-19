@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,7 +28,22 @@ public class MovieController {
     public MovieController() {
 
     }
+    static List<String> languageList  = null;
+    static List<String> typeList  = null;
 
+    static {
+        languageList=new ArrayList<>();
+        languageList.add("Türkçe");
+        languageList.add("Almanca");
+        languageList.add("Franszıca");
+    }
+
+    static {
+        typeList=new ArrayList<>();
+        typeList.add("korku");
+        typeList.add("gerilim");
+        typeList.add("aksiyon");
+    }
     @GetMapping("/list")
     public String list(Model model) {
         List<Movie> movies = movieService.list();
@@ -70,6 +86,8 @@ public class MovieController {
         List<Actor> actors = actorService.list();
         model.addAttribute("actors", actors);
         model.addAttribute("movie", movie);
+        model.addAttribute("languageList", languageList);
+        model.addAttribute("typeList", typeList);
         return "newMovie";
     }
 

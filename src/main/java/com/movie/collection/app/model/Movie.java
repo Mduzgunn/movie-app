@@ -22,7 +22,7 @@ public class Movie {
     private int year;
 
     @Column(name = "TYPE")
-    private String type;
+    private Type type;
 
     @Column(name = "DESCRIPTION", length = 1024)
     private String description;
@@ -31,7 +31,7 @@ public class Movie {
     private String media;
 
     @Column(name = "LANGUAGE")
-    private String language;
+    private Language language;
 
 
 
@@ -92,20 +92,28 @@ public class Movie {
         this.actors = actors;
     }
 
-    public String getLanguage() {
+
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
+    public enum Type {
+        Aksiyon, Korku, Gerilim, Polisiye
+    }
+
+    public enum Language {
+        Türkçe, English, Çerkesce, Almanca
+    }
 }

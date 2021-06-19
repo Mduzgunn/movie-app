@@ -24,13 +24,15 @@
         <label>Movie Year:</label>
         <input type="text" th:field="*{year}" placeholder="year"><br>
 
+        <!-- verilerin backendden gelemsi düzeltildi -->
         <label>Movie Type:</label>
-        <select name="type">
-            <option value="aksiyon">aksiyon</option>
-            <option value="korku">korku</option>
-            <option value="gerilim">gerilim</option>
-            <option value="polisiye">polisiye</option>
-        </select><br>
+        <label>
+            <select name="type">
+                <option th:each="type : ${typeList}"
+                        th:text="${type}"
+                >
+            </select>
+        </label><br>
 
         <label>Movie Description:</label>
         <input type="text" th:field="*{description}" placeholder="description"><br>
@@ -38,13 +40,12 @@
         <label>Movie Media:</label>
         <input type="text" th:field="*{media}" placeholder="media"><br>
 
+        <!-- verilerin backendden gelemsi düzeltildi -->
         <label>Movie Language:</label>
         <select name="language">
-            <option value="English">English</option>
-            <option value="Türkçe">Türkçe</option>
-            <option value="Rusça">Rusça</option>
-            <option value="Çerkesce">Çerkesce</option>
-
+            <option th:each="language : ${languageList}"
+                th:text="${language}"
+            >
         </select><br>
 
         <label>Movie Actors:</label>
