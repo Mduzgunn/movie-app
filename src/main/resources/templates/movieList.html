@@ -15,25 +15,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          rel="stylesheet">
+
 </head>
 <body>
 
 <div>
-    <a th:href="@{/movie/add-movie}">ADD NEW MOVIE</a><br>
-    <a th:href="@{/actor/add-actor}">ADD NEW ACTOR</a><br>
-    <a th:href="@{/actor/list}">ACTOR LIST</a><br>
-    <a th:href="@{/user-movie/list}">MOVIE LIST</a><br>
-    <h1>MOVIE LİST</h1>
-    <form th:action="@{/movie/search}" method="get">
-        <input type="text" name="search" th:value="${search}"/> <br/>
-        <button type="submit">Search</button>
-    </form>
-    <form th:action="@{/movie/sort-date}" method="get"><br/>
-        <button type="submit">Sort By Date</button>
-    </form>
+    <a class="btn btn-primary btn-sm mb-3" th:href="@{/movie/add-movie}">ADD NEW MOVIE</a>
+    <a class="btn btn-primary btn-sm mb-3" th:href="@{/actor/add-actor}">ADD NEW ACTOR</a>
+    <a class="btn btn-primary btn-sm mb-3" th:href="@{/actor/list}">ACTOR LIST</a>
+    <a class="btn btn-primary btn-sm mb-3" th:href="@{/user-movie/list}">MOVIE LIST</a>
 
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Movie List</a>
+        <form class="form-inline" th:action="@{/movie/search}" method="get">
+            <input  class="form-control mr-sm-2" placeholder="Search" type="text" name="search" th:value="${search}"/> <br/>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
 
-    <table>
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline" th:action="@{/movie/sort-date}" method="get"><br/>
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Sort By Date</button>
+        </form>
+    </nav>
+
+    <table  class="table table-striped table-responsive-md">
         <thead>
         <tr>
 
@@ -62,10 +74,10 @@
         <div sec:authorize="hasRole('ADMIN')">
 
             <td>
-                <a th:href="@{/movie/edit/{id}(id=${movie.id})}">Edit</a>
+                <a class="btn btn-primary" th:href="@{/movie/edit/{id}(id=${movie.id})}">Edit</a>
             </td>
             <td>
-                <a th:href="@{/movie/delete/{id}(id=${movie.id})}">Delete</a>
+                <a class="btn btn-danger" th:href="@{/movie/delete/{id}(id=${movie.id})}">Delete</a>
             </td>
         </div>
 

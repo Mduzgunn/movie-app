@@ -35,15 +35,16 @@ public class MovieController {
         languageList=new ArrayList<>();
         languageList.add("Türkçe");
         languageList.add("Almanca");
-        languageList.add("Franszıca");
+        languageList.add("Fransizca");
     }
 
     static {
         typeList=new ArrayList<>();
-        typeList.add("korku");
-        typeList.add("gerilim");
-        typeList.add("aksiyon");
+        typeList.add("Korku");
+        typeList.add("Gerilim");
+        typeList.add("Aksiyon");
     }
+
     @GetMapping("/list")
     public String list(Model model) {
         List<Movie> movies = movieService.list();
@@ -56,7 +57,6 @@ public class MovieController {
     @GetMapping("/listtest")
     public @ResponseBody  List<Movie>  listApi() {
         List<Movie> movies = movieService.list();
-
         return movies;
     }
 

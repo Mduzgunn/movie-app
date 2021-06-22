@@ -7,7 +7,10 @@
 
     <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 
-
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -18,45 +21,55 @@
 
         <input type="hidden" th:field="*{id}"/> <br/>
 
-        <label>Movie Name:</label>
-        <input type="text" th:field="*{name}" placeholder="name"><br>
+        <label>Movie Name</label>
+        <input  class="form-control mb-4 col-4"  type="text" th:field="*{name}" placeholder="Movie Name"><br>
 
-        <label>Movie Year:</label>
-        <input type="text" th:field="*{year}" placeholder="year"><br>
+        <label>Movie Year</label>
+        <input class="form-control mb-4 col-4" type="text" th:field="*{year}" placeholder="Movie Year"><br>
 
         <!-- verilerin backendden gelemsi düzeltildi -->
-        <label>Movie Type:</label>
-        <label>
-            <select name="type">
-                <option th:each="type : ${typeList}"
-                        th:text="${type}"
+        <div  class="form-group col-md-4">
+            <label>Movie Type:</label>
+            <label>
+                <select class="form-control" name="type">
+                    <option th:each="type : ${typeList}"
+                            th:text="${type}"
+                    >
+                </select>
+            </label><br>
+        </div>
+
+        <label>Movie Description</label>
+        <input class="form-control mb-4 col-4" type="text" th:field="*{description}" placeholder="Movie Description"><br>
+
+        <label>Movie Media</label>
+        <input class="form-control mb-4 col-4" type="text" th:field="*{media}" placeholder="Movie Media"><br>
+
+        <!-- verilerin backendden gelmesi düzeltildi -->
+        <div  class="form-group col-md-4">
+            <label>Movie Language:</label>
+            <label>
+            <select class="form-control"  name="language">
+                <option th:each="language : ${languageList}"
+                    th:text="${language}"
                 >
             </select>
-        </label><br>
+            </label><br>
+        </div>
 
-        <label>Movie Description:</label>
-        <input type="text" th:field="*{description}" placeholder="description"><br>
+        <div  class="form-group col-md-4">
+            <label>Movie Actors:</label>
+            <label>
+            <select class="form-control" th:field="*{actors}">
+                <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.firstName}"></option>
+            </select>
+            </label><br/>
+        </div>
 
-        <label>Movie Media:</label>
-        <input type="text" th:field="*{media}" placeholder="media"><br>
-
-        <!-- verilerin backendden gelemsi düzeltildi -->
-        <label>Movie Language:</label>
-        <select name="language">
-            <option th:each="language : ${languageList}"
-                th:text="${language}"
-            >
-        </select><br>
-
-        <label>Movie Actors:</label>
-        <select th:field="*{actors}">
-            <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.firstName}"></option>
-        </select> <br/>
-
-        <button type="submit">SAVE</button>
+        <button class="btn btn-info" type="submit">SAVE</button>
     </form>
-    <a th:href="@{/movie/list}">back to movie list</a><br>
-    <a th:href="@{/actor/list}">go to actor list</a>
+    <a class="btn btn-warning" th:href="@{/movie/list}">back to movie list</a>
+    <a class="btn btn-warning" th:href="@{/actor/list}">go to actor list</a>
 </div>
 </body>
 </html>

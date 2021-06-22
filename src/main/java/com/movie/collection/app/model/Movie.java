@@ -110,10 +110,11 @@ public class Movie {
     }
 
     public enum Type {
-        Aksiyon, Korku, Gerilim, Polisiye
+        Aksiyon, Korku, Gerilim
     }
 
     public enum Language {
-        Türkçe, English, Çerkesce, Almanca
+        Türkçe, Fransizca, Almanca
     }
+
 }
