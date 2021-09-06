@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.relation.Role;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -29,7 +31,10 @@ public class ActorController {
     @GetMapping("/add-actor")
     public String add(Model model) {
         Actor actor = new Actor();
+        List<String> roleList = Arrays.asList("Recurring","Guest star","Co-star/day player");
+
         model.addAttribute("actor", actor);
+        model.addAttribute("roleList",roleList);
         return "newActor";
     }
 

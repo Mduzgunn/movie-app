@@ -20,11 +20,11 @@
         <input type="text" th:field="*{lastName}" placeholder="lastname"><br>
 
         <label>Actor Role:</label>
-        <select name="role">
-            <option value="başrol">başrol</option>
-            <option value="konuk">konuk</option>
-            <option value="yardimci">yardimci</option>
-        </select><br>
+        <label>
+            <select th:field="*{role}" class="form-control">
+                <option th:each="p : ${roleList}" th:value="${p}" th:text="${p}"></option>
+            </select>
+        </label><br>
 
         <button type="submit">SAVE</button>
     </form>

@@ -22,14 +22,13 @@
         <label>Movie Year</label>
         <input class="form-control mb-4 col-4" type="text" th:field="*{year}" placeholder="Movie Year"><br>
 
-        <!-- verilerin backendden gelemsi düzeltildi -->
         <div class="form-group col-md-4">
             <label>Movie Type:</label>
             <label>
                 <select class="form-control" name="type">
-                    <option th:each="type : ${typeList}"
-                            th:text="${type}"
-                    >
+                    <select th:field="*{type}" class="form-control">
+                        <option th:each="p : ${typeList}" th:value="${p}" th:text="${p}"></option>
+                    </select>
                 </select>
             </label><br>
         </div>
@@ -41,27 +40,21 @@
         <label>Movie Media</label>
         <input class="form-control mb-4 col-4" type="text" th:field="*{media}" placeholder="Movie Media"><br>
 
-        <!-- verilerin backendden gelmesi düzeltildi -->
+
         <div class="form-group col-md-4">
             <label>Movie Language:</label>
             <label>
                 <select th:field="*{language}" class="form-control" name="language">
-                    <option th:each="p : ${languageList}" th:value="${p}" th:text="${p}" />
-
-                    <!--                    <option th:each="language : ${languageList}"-->
-<!--                            th:text="${language}"-->
-<!--                    >-->
+                    <option th:each="p : ${languageList}" th:value="${p}" th:text="${p}"></option>
                 </select>
             </label><br>
         </div>
 
         <div class="form-group col-md-4">
             <label>Movie Actors:</label>
-            <label>
-                <select class="form-control" th:field="*{actors}">
-                    <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.firstName}"></option>
-                </select>
-            </label><br/>
+            <select class="form-control" th:field="*{actors}">
+                <option th:each="actor:${actors}" th:value="${actor.id}" th:text="${actor.firstName}"></option>
+            </select>
         </div>
 
         <button class="btn btn-info" type="submit">SAVE</button>
