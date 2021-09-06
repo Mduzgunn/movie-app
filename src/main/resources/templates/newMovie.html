@@ -45,10 +45,12 @@
         <div class="form-group col-md-4">
             <label>Movie Language:</label>
             <label>
-                <select class="form-control" name="language">
-                    <option th:each="language : ${languageList}"
-                            th:text="${language}"
-                    >
+                <select th:field="*{language}" class="form-control" name="language">
+                    <option th:each="p : ${languageList}" th:value="${p}" th:text="${p}" />
+
+                    <!--                    <option th:each="language : ${languageList}"-->
+<!--                            th:text="${language}"-->
+<!--                    >-->
                 </select>
             </label><br>
         </div>

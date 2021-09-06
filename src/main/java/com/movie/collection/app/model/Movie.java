@@ -22,7 +22,7 @@ public class Movie {
     private int year;
 
     @Column(name = "TYPE")
-    private Type type;
+    private String type;
 
     @Column(name = "DESCRIPTION", length = 1024)
     private String description;
@@ -31,7 +31,7 @@ public class Movie {
     private String media;
 
     @Column(name = "LANGUAGE")
-    private Language language;
+    private String language;
 
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -91,29 +91,19 @@ public class Movie {
         this.actors = actors;
     }
 
-
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public enum Type {
-        Aksiyon, Korku, Gerilim
+    public String getLanguage() {
+        return language;
     }
 
-    public enum Language {
-        Türkçe, Fransizca, Almanca
+    public void setLanguage(String language) {
+        this.language = language;
     }
-
 }

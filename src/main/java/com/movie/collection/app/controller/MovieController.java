@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -25,26 +26,6 @@ public class MovieController {
     @Autowired
     private ActorService actorService;
 
-    public MovieController() {
-
-    }
-
-    static List<String> languageList = null;
-    static List<String> typeList = null;
-
-    static {
-        languageList = new ArrayList<>();
-        languageList.add("Türkçe");
-        languageList.add("Almanca");
-        languageList.add("Fransizca");
-    }
-
-    static {
-        typeList = new ArrayList<>();
-        typeList.add("Korku");
-        typeList.add("Gerilim");
-        typeList.add("Aksiyon");
-    }
 
     @GetMapping("/list")
     public String list(Model model) {
@@ -76,8 +57,12 @@ public class MovieController {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         Movie movie = movieService.getById(id);
+        List<String> languageList = Arrays.asList("Spanish", "English", "Russian");
+        List<String> typeList = Arrays.asList("Action", "Comedy", "Horror");
         model.addAttribute("actors", actorService.list());
         model.addAttribute("movie", movie);
+        model.addAttribute("languageList",languageList);
+        model.addAttribute("typeList", typeList);
         return "newMovie";
     }
 
@@ -85,6 +70,9 @@ public class MovieController {
     public String add(Model model) {
         Movie movie = new Movie();
         List<Actor> actors = actorService.list();
+        List<String> languageList = Arrays.asList("Spanish", "English", "Russian");
+        List<String> typeList = Arrays.asList("Action", "Comedy", "Horror");
+
         model.addAttribute("actors", actors);
         model.addAttribute("movie", movie);
         model.addAttribute("languageList", languageList);
